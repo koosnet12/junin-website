@@ -448,3 +448,23 @@ a.card:hover { border-color: var(--ink); transform: translateY(-2px); }
 .types-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
 .types-4 .profile, .card .profile { height: 96px; }
 @media (max-width: 1000px) { .types-4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+/* ---------- language switch (KO / EN) ---------- */
+.site-header .brand { order: 1; }
+.site-header .nav { order: 2; }
+.site-header .lang { order: 3; }
+.site-header .nav-toggle { order: 4; }
+.lang { display: flex; align-items: center; flex-shrink: 0; border: 1px solid var(--line); border-radius: 2px; font-family: var(--font-num); font-weight: 600; font-size: 14px; letter-spacing: .06em; }
+.lang a { text-decoration: none; padding: 5px 9px; color: var(--steel); line-height: 1.2; }
+.lang a + a { border-left: 1px solid var(--line); }
+.lang a:hover { color: var(--ink); }
+.lang a[aria-current] { color: var(--ink); background: var(--paper); }
+@media (max-width: 900px) {
+  .lang { margin-left: auto; }
+  .nav-toggle { margin-left: 10px; }
+}
+/* English pages: longer labels */
+html[lang="en"] .nav a { padding-inline: 11px; }
+html[lang="en"] .hero h1 { max-width: 18em; letter-spacing: -0.025em; }
+html[lang="en"] .facts > div { grid-template-columns: 11em minmax(0,1fr); }
+html[lang="en"] .info-list > div { grid-template-columns: 5.5em minmax(0,1fr); }
