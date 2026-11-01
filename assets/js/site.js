@@ -34,38 +34,48 @@
       status.innerHTML = msg;
       status.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
+    var EN = (document.documentElement.lang || '').slice(0, 2) === 'en';
+    var L = EN ? {
+      type: 'Inquiry type', company: 'Company', name: 'Contact name', phone: 'Phone', email: 'E-mail',
+      country: 'Country', project: 'Project', spec: 'Specification / quantity', due: 'Required delivery date',
+      def: 'Quotation', subj: 'Website',
+      ok: '<strong>Thank you. Your inquiry has been received.</strong> Our team will get back to you shortly.',
+      fail: function (to) { return 'Your inquiry could not be sent. Please try again later or e-mail us at <strong>' + to + '</strong>.'; },
+      mail: function (to) { return 'Please check and send the e-mail prepared in your mail app. If it does not open, e-mail us directly at <strong>' + to + '</strong> and attach your drawings.'; }
+    } : {
+      type: '문의 유형', company: '회사명', name: '담당자', phone: '연락처', email: '이메일',
+      country: '국가', project: '현장·프로젝트', spec: '규격·수량', due: '납기 희망일',
+      def: '견적 요청', subj: '홈페이지',
+      ok: '<strong>문의가 접수되었습니다.</strong> 담당자가 확인 후 연락드리겠습니다.',
+      fail: function (to) { return '전송하지 못했습니다. 잠시 후 다시 시도하시거나 <strong>' + to + '</strong> 로 메일을 보내 주세요.'; },
+      mail: function (to) { return '메일 프로그램에서 작성된 메일을 확인하고 보내 주세요. 메일 창이 열리지 않으면 <strong>' + to + '</strong> 로 직접 보내 주시고, 도면 파일은 메일에 첨부해 주세요.'; }
+    };
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
       var d = new FormData(form);
-      var type = d.get('type') || '견적 요청';
-      var lines = [
-        '[문의 유형] ' + type,
-        '[회사명] ' + (d.get('company') || ''),
-        '[담당자] ' + (d.get('name') || ''),
-        '[연락처] ' + (d.get('phone') || ''),
-        '[이메일] ' + (d.get('email') || ''),
-        '[현장·프로젝트] ' + (d.get('project') || ''),
-        '[규격·수량] ' + (d.get('spec') || ''),
-        '[납기 희망일] ' + (d.get('due') || ''),
-        '',
-        d.get('message') || ''
-      ];
+      var type = d.get('type') || L.def;
+      var lines = ['[' + L.type + '] ' + type];
+      ['company', 'name', 'phone', 'email', 'country', 'project', 'spec', 'due'].forEach(function (k) {
+        if (k === 'country' && !form.elements.country) return;
+        lines.push('[' + L[k] + '] ' + (d.get(k) || ''));
+      });
+      lines.push('', d.get('message') || '');
       if (endpoint) {
         fetch(endpoint, { method: 'POST', body: d, headers: { Accept: 'application/json' } })
           .then(function (r) {
             if (!r.ok) throw new Error();
             form.reset();
-            show('<strong>문의가 접수되었습니다.</strong> 담당자가 확인 후 연락드리겠습니다.');
+            show(L.ok);
           })
           .catch(function () {
-            show('전송하지 못했습니다. 잠시 후 다시 시도하시거나 <strong>' + TO + '</strong> 로 메일을 보내 주세요.', true);
+            show(L.fail(TO), true);
           });
         return;
       }
-      var subject = '[홈페이지 ' + type + '] ' + (d.get('company') || '') + ' ' + (d.get('name') || '');
+      var subject = '[' + L.subj + ' ' + type + '] ' + (d.get('company') || '') + ' ' + (d.get('name') || '');
       var href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-      show('메일 프로그램에서 작성된 메일을 확인하고 보내 주세요. 메일 창이 열리지 않으면 <strong>' + TO + '</strong> 로 직접 보내 주시고, 도면 파일은 메일에 첨부해 주세요.');
+      show(L.mail(TO));
       window.location.href = href;
     });
   }
