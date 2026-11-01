@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>견적 문의 | (주)준인산업</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="(주)준인산업 견적 문의. TEL 031-351-3142, FAX 031-351-3149, hgkoo@juninmail.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="견적 문의 | (주)준인산업">
+<meta property="og:description" content="(주)준인산업 견적 문의. TEL 031-351-3142, FAX 031-351-3149, hgkoo@juninmail.com">
+<meta property="og:image" content="assets/img/hero-line.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/mark-32.png">
+<link rel="apple-touch-icon" href="assets/img/mark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="sr-only" href="#main">본문 바로가기</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="(주)준인산업 홈"><img src="assets/img/logo.svg" alt="(주)준인산업" width="155" height="34"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span class="sr-only">메뉴</span></button>
+    <nav class="nav" id="site-nav" aria-label="주 메뉴">
+      <a href="company.html">회사소개</a>
+<a href="products.html">제품</a>
+<a href="facility.html">설비·생산능력</a>
+<a href="projects.html">실적</a>
+<a class="nav-cta" href="contact.html" aria-current="page">견적 문의</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="section-tight section-paper">
+  <div class="wrap" style="display:grid;gap:14px">
+    <span class="eyebrow">Contact</span>
+    <h1 style="font-size:clamp(30px,4vw,46px)">견적 문의</h1>
+    <p class="note" style="font-size:17px;max-width:40em">현장명과 규격, 수량을 알려주시면 담당자가 검토 후 연락드립니다. 도면이 있으면 메일로 함께 보내 주세요.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap contact-grid">
+    <form class="form" id="quote-form" data-mailto="hgkoo@juninmail.com" data-endpoint="" novalidate>
+      <div class="field"><span class="lbl">문의 유형<span class="req">*</span></span>
+        <div class="chips" role="radiogroup" aria-label="문의 유형">
+          <label><input type="radio" name="type" id="type-quote" value="견적 요청" checked><span>견적 요청</span></label>
+          <label><input type="radio" name="type" id="type-spec" value="규격·하중 상담"><span>규격·하중 상담</span></label>
+          <label><input type="radio" name="type" id="type-etc" value="기타 문의"><span>기타 문의</span></label>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="f-company">회사명<span class="req">*</span></label><input id="f-company" name="company" required autocomplete="organization"></div>
+        <div class="field"><label for="f-name">담당자<span class="req">*</span></label><input id="f-name" name="name" required autocomplete="name"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="f-phone">연락처<span class="req">*</span></label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="010-0000-0000"></div>
+        <div class="field"><label for="f-email">이메일</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+      </div>
+      <div class="field"><label for="f-project">현장·프로젝트명</label><input id="f-project" name="project" placeholder="예: OO 플랜트 증설 2단계"></div>
+      <div class="row2">
+        <div class="field"><label for="f-spec">규격·수량</label><input id="f-spec" name="spec" placeholder="예: I-32 피치 30, 약 40톤"></div>
+        <div class="field"><label for="f-due">납기 희망일</label><input id="f-due" name="due" type="date"></div>
+      </div>
+      <div class="field"><label for="f-message">문의 내용<span class="req">*</span></label><textarea id="f-message" name="message" required placeholder="스팬, 하중 조건, 끝 마감(엔드바형·컷엔드형), 계단 발판 여부 등을 적어 주세요."></textarea>
+        <span class="hint">도면 파일은 hgkoo@juninmail.com 로 보내 주세요.</span></div>
+      <label class="agree"><input type="checkbox" id="f-agree" name="agree" required>
+        <span>개인정보 수집·이용에 동의합니다. (필수)
+          <details><summary>내용 보기</summary>수집 항목: 회사명, 담당자, 연락처, 이메일 · 목적: 견적 및 문의 응대 · 보관 기간: 문의 처리 후 1년</details>
+        </span></label>
+      <div><button class="btn btn-red" type="submit">문의 보내기</button></div>
+      <div class="form-status" id="form-status" role="status" hidden></div>
+    </form>
+    <aside style="display:grid;gap:36px">
+      <div><h2 style="font-size:20px;margin-bottom:14px">연락처</h2>
+        <dl class="info-list">
+          <div><dt>전화</dt><dd><a class="big" href="tel:0313513142">031-351-3142</a></dd></div>
+          <div><dt>팩스</dt><dd class="big">031-351-3149</dd></div>
+          <div><dt>이메일</dt><dd><a href="mailto:hgkoo@juninmail.com">hgkoo@juninmail.com</a></dd></div>
+          <div><dt>주소</dt><dd style="font-weight:500">경기도 화성시 만세구 장안면 매바위로366번길 16</dd></div>
+        </dl></div>
+      <div><h2 style="font-size:20px;margin-bottom:14px">자료실</h2>
+        <a class="doc-card" href="assets/docs/junin-grating-spec-2026-10.pdf" target="_blank" rel="noopener"><span class="ext">PDF</span><div><strong>스틸 그레이팅 규격표</strong><span>기본 치수, 베어링 바, 단위중량, 계단 발판 · 2026.10</span></div></a>
+        <a class="doc-card" style="margin-top:12px" href="assets/docs/junin-catalog.pdf" download><span class="ext">PDF</span><div><strong>회사 카탈로그 (Steel Grating DATA BOOK)</strong><span>제품 구조, 규격, 제작 공정 · 16쪽 · 3.3MB</span></div></a></div>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <img src="assets/img/logo-white.svg" alt="(주)준인산업" width="137" height="30">
+      <nav class="foot-nav" aria-label="하단 메뉴"><a href="company.html">회사소개</a><a href="products.html">제품</a><a href="facility.html">설비·생산능력</a><a href="projects.html">실적</a><a href="contact.html">견적 문의</a><a href="assets/docs/junin-catalog.pdf" download>카탈로그</a></nav>
+    </div>
+    <div class="foot-info">
+      <p><span>(주)준인산업</span><span>공동대표이사 이덕근, 구형근</span></p>
+      <p><span>본사·공장 경기도 화성시 만세구 장안면 매바위로366번길 16</span><span>기업부설연구소 부산광역시 남구 남동천로 128, BIFC2 1512호</span></p>
+      <p><span>TEL <a href="tel:0313513142">031-351-3142</a></span><span>FAX 031-351-3149</span><span>E-mail <a href="mailto:hgkoo@juninmail.com">hgkoo@juninmail.com</a></span></p>
+    </div>
+    <p class="foot-copy">© 2026 JUNIN Industrial Co., Ltd. All rights reserved.</p>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
